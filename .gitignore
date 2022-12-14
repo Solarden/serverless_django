@@ -224,3 +224,4 @@ typings/
 
 # Serverless
 .serverless/
+/secrets.json
