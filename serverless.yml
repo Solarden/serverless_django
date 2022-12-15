@@ -10,9 +10,9 @@ custom:
     packRequirements: false
   pythonRequirements:
     dockerizePip: non-linux
-  DB_NAME: dbname
-  DB_USERNAME: dbusername
-  DB_PASSWORD: dbpassword
+  DB_NAME: ${file(./secrets.json):DB_NAME}
+  DB_USERNAME: ${file(./secrets.json):DB_USERNAME}
+  DB_PASSWORD: ${file(./secrets.json):DB_PASSWORD}
   DB_PORT: !GetAtt RDSInstance.Endpoint.Port
   PROXY_ENDPOINT: !GetAtt RDSProxy.Endpoint
   PROXY_NAME: example-proxy-name-${opt:stage, 'dev'}
@@ -43,7 +43,7 @@ functions:
     handler: wsgi_handler.handler
     events:
       - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http: 'ANY /{proxy+}'
 
 resources:
   - ${file(resources/VpcResources.yml)}
