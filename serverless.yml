@@ -47,6 +47,5 @@ functions:
 
 resources:
   - ${file(resources/VpcResources.yml)}
-  - ${file(resources/RoutingResources.yml)}
   - ${file(resources/RdsResources.yml)}
   - ${file(resources/RdsProxyResources.yml)}
