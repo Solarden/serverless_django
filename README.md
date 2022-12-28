@@ -17,8 +17,8 @@ https://aws.amazon.com/cli/
 it running on your localhost execute `sls wsgi serve`.
 
 Executing Django commands remotely:
-1. For running Django migrations into the database execute: `sls wsgi manage –command ‘migrate’`
+1. For running Django migrations into the database execute: `sls wsgi manage --command 'migrate'`
 2. If you would like to create superuser account you can use django_createsuperuserwithpassword 
 (https://github.com/hartwork/django-createsuperuserwithpassword) and then run it by command:
-`sls wsgi manage --command "createsuperuserwithpassword --username admin --password admin --email admin@example.org 
---preserve”`
+`sls wsgi manage --command 'createsuperuserwithpassword --username admin --password admin --email admin@example.org 
+--preserve'`
